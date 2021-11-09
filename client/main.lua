@@ -12,8 +12,8 @@ function Help(content)
     })
 end
 
-RegisterNetEvent('ep_notifications:notify', function(message)
-    Notify(message)
+RegisterNetEvent('ep_notifications:notify', function(message, time)
+    Notify(message, time)
 end)
 
 RegisterNetEvent('ep_notifications:help', function(message)
