@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="app.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+        <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css"> 
+    </head>
+    <body>
+        <div id="app">
+            <transition name="fade">
+                <div v-if="notifications.length > 0" id="show">
+                    <div id="header">
+                        <a>Notifications</a><hr>
+                    </div>
+                    <div v-for="notification in notifications" v-if="notification[1] >= 0" id="notification">  
+                        <div v-html="replace(notification[0])"></div>
+                    </div>
+                </div>
+            </transition>
+        </div>
+
+        <div v-if="timeleft > 0" id="help">
+            <div v-if="message != null">
+                <div id="header">
+                    <a>Action</a><hr>
+                </div> 
+                <div id="help-content">
+                    <div v-html="replace(message)"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    </body>
+</html>
